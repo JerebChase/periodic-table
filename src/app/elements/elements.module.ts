@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ElementListComponent } from './element-list/element-list.component';
-import { ElementListItemComponent } from './element-list-item/element-list-item.component';
-import { ElementComponent } from './element/element.component';
+import { ElementListComponent } from './components/element-list/element-list.component';
+import { ElementListItemComponent } from './components/element-list-item/element-list-item.component';
+import { ElementComponent } from './components/element/element.component';
 
 
 
@@ -14,6 +14,11 @@ import { ElementComponent } from './element/element.component';
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    ElementListComponent,
+    ElementListItemComponent,
+    ElementComponent
   ]
 })
 export class ElementsModule { }
