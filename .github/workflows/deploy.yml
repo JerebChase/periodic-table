@@ -22,6 +22,11 @@ jobs:
     - name: npm Install
       run: npm install
     - name: Build Angular App
-      run: npm run build --configuration=development
+      run: npm run build --configuration=
+    - name: Configure AWS credentials for Github Actions
+      uses: aws-actions/configure-aws-credentials@v4
+      with:
+        aws-region: us-east-1
+        role-to-assume: arn:aws:iam::105459448871:role/GithubProviderRole
     - name: Deploy to S3
       run: aws s3 sync dist/periodic-table/browser s3://periodic-table-dev 
