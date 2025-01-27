@@ -1,0 +1,27 @@
+name: Build angular app and deploy to S3
+
+on:
+  push:
+    branches: [ "main", "dev" ]
+  
+permissions:
+  id-token: write
+  contents: read
+  
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '20'
+    - name: npm Install
+      run: npm install
+    - name: Build Angular App
+      run: npm run build --configuration=development
+    - name: Deploy to S3
+      run: aws s3 sync dist/periodic-table/browser s3://periodic-table-dev 
