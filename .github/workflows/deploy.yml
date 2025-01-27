@@ -22,7 +22,7 @@ jobs:
     - name: npm Install
       run: npm install
     - name: Build Angular App
-      run: npm run build --configuration=development
+      run: npm run build --configuration development
     - name: Configure AWS credentials for Github Actions
       uses: aws-actions/configure-aws-credentials@v4
       with:
