@@ -1,24 +1,24 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ElementListComponent } from './components/element-list/element-list.component';
-import { ElementListItemComponent } from './components/element-list-item/element-list-item.component';
+import { PeriodicTableComponent } from './components/periodic-table/periodic-table.component';
 import { ElementComponent } from './components/element/element.component';
+import { ElementDetailComponent } from './components/element-detail/element-detail.component';
 
 
 
 @NgModule({
   declarations: [
-    ElementListComponent,
-    ElementListItemComponent,
-    ElementComponent
+    PeriodicTableComponent,
+    ElementComponent,
+    ElementDetailComponent
   ],
   imports: [
     CommonModule
   ],
   exports: [
-    ElementListComponent,
-    ElementListItemComponent,
-    ElementComponent
+    PeriodicTableComponent,
+    ElementComponent,
+    ElementDetailComponent
   ]
 })
 export class ElementsModule { }

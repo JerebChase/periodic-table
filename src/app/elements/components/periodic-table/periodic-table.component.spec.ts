@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ElementListComponent } from './element-list.component';
+import { PeriodicTableComponent } from './periodic-table.component';
 
-describe('ElementListComponent', () => {
-  let component: ElementListComponent;
-  let fixture: ComponentFixture<ElementListComponent>;
+describe('PeriodicTableComponent', () => {
+  let component: PeriodicTableComponent;
+  let fixture: ComponentFixture<PeriodicTableComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ElementListComponent]
+      declarations: [PeriodicTableComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ElementListComponent);
+    fixture = TestBed.createComponent(PeriodicTableComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
