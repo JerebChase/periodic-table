@@ -12,7 +12,6 @@ export class ElementDetailComponent implements OnInit {
 
   ngOnInit() {
     this.elementService.getElement("1").subscribe(elementDetails => {
-      debugger;
       console.log(elementDetails);
     });
   }
