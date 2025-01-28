@@ -1,0 +1,80 @@
+.element {
+  border-radius: 5px;
+  margin: 2px;
+  width: 5vw;
+  height: 5vw;
+}
+
+.atomic-number {
+  font-size: 12px;
+  margin: 2px;
+}
+
+.symbol {
+  font-size: 32px;
+  text-align:center;
+  margin: 0px;
+  font-weight: 400;
+}
+
+.element-name {
+  font-size: 12px;
+  text-align:center;
+  margin: 0px;
+  text-overflow: ellipsis;
+}
+
+.nonmetal {
+  background-color: #037F8C20;
+  color: #037F8C;
+}
+
+.halogen {
+  background-color: #A6036520;
+  color: #A60365;
+}
+
+.noble-gas {
+  background-color: #03A69620;
+  color: #03A696;
+}
+
+.alkali-metal {
+  background-color: #F2C87920;
+  color: #F2C879;
+}
+
+.alkaline-earth {
+  background-color: #F27F3D20;
+  color: #F27F3D;
+}
+
+.transition-metal {
+  background-color: #A6465720;
+  color: #A64657;
+}
+
+.metalloid {
+  background-color: #F2644420;
+  color: #F26444;
+}
+
+.metal {
+  background-color: #8BD9D920;
+  color: #8BD9D9;
+}
+
+.actinide {
+  background-color: #F2937E20;
+  color: #F2937E;
+}
+
+.lanthanide {
+  background-color: #F2C64120;
+  color: #F2C641;
+}
+
+.transactinide {
+  background-color: #4AA96520;
+  color: #4AA965;
+}

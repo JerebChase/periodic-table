@@ -1,5 +1,14 @@
+<h1 class="title">The Periodic Table Of Elements</h1>
+
+@if(!elements) {
+  <div class="loading-table">
+    <img src="icons/atom-loading.svg" alt="Loading..." />
+    <p>{{loadingPhrase}}</p>
+  </div>
+} 
+
 <div class="periodic-table">
-    @for (element of elements; track element) {
-        <element [element]="element"></element>
-    }
+  @for (element of elements; track element) {
+      <element class="row-{{element.displayRow}} column-{{element.displayColumn}}" [element]="element"></element>
+  }
 </div>
