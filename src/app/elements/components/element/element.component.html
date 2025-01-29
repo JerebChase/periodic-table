@@ -1,4 +1,4 @@
-<div class="element {{element.type !== null ? element.type.toLocaleLowerCase().replace(' ', '-') : ''}}">
+<div [routerLink]="'/elements/' + element.atomicNumber" class="element {{element.type !== null ? element.type.toLocaleLowerCase().replace(' ', '-') : ''}}">
   <p class="atomic-number">{{element.atomicNumber}}</p>
   <h2 class="symbol">{{element.symbol}}</h2>
   <p class="element-name">{{element.element}}</p>

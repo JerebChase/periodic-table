@@ -10,12 +10,14 @@ export interface elementDetail {
     electronConfiguration: string;
     electronegativity: number;
     element: string;
+    facts: string;
     firstIonizationPotential: number;
     group: number;
     ionicRadius: number;
     isotopes: number;
     meltingPointKelvin: number;
     mostStableCrystal: string;
+    oxidationStates: string;
     period: number;
     phase: string;
     specificHeatCapacity: number;

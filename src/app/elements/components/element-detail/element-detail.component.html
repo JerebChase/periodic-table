@@ -1,1 +1,13 @@
-<p>element works!</p>
+
+
+<div class="element-details">
+  <h1 class="element-title">{{elementDetails.element}}</h1>
+  <div class="back-button" (click)="goBack()"><img src="icons/back-arrow.svg" alt="Back"/></div>
+  <div class="element-info">
+    <div class="element-card {{elementDetails.type !== null ? elementDetails.type.toLocaleLowerCase().replace(' ', '-') : ''}}">
+      <p>{{elementDetails.atomicNumber}}</p>
+      <h2>{{elementDetails.symbol}}</h2>
+    </div>
+    <p>{{elementDetails.facts}}</p>
+  </div>
+</div>

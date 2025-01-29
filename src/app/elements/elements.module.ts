@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { PeriodicTableComponent } from './components/periodic-table/periodic-table.component';
 import { ElementComponent } from './components/element/element.component';
 import { ElementDetailComponent } from './components/element-detail/element-detail.component';
+import { RouterModule } from '@angular/router';
 
 
 
@@ -13,7 +14,8 @@ import { ElementDetailComponent } from './components/element-detail/element-deta
     ElementDetailComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   exports: [
     PeriodicTableComponent,
