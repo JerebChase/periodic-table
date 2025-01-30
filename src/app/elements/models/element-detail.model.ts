@@ -19,8 +19,8 @@ export interface elementDetail {
     mostStableCrystal: string;
     oxidationStates: string;
     period: number;
-    phase: string;
     specificHeatCapacity: number;
+    standardState: string;
     symbol: string;
     type: string;
     yearOfDiscovery: number;
