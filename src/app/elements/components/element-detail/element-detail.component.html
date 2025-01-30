@@ -5,9 +5,20 @@
   <div class="back-button" (click)="goBack()"><img src="icons/back-arrow.svg" alt="Back"/></div>
   <div class="element-info">
     <div class="element-card {{elementDetails.type !== null ? elementDetails.type.toLocaleLowerCase().replace(' ', '-') : ''}}">
-      <p>{{elementDetails.atomicNumber}}</p>
+      <div class="element-header">
+        <p>{{elementDetails.atomicNumber}}</p>
+        <p>{{elementDetails.atomicWeight}}</p>
+      </div>
       <h2>{{elementDetails.symbol}}</h2>
+      <div class="element-footer">
+        <p>{{elementDetails.element}}</p>
+        <p>{{elementDetails.type}}</p>
+      </div>
     </div>
     <p>{{elementDetails.facts}}</p>
+    <div class="element-discovery">
+      <p>Discovered by <span>{{elementDetails.discoverer}}</span> in <span>{{elementDetails.yearOfDiscovery}}</span></p>
+
+    </div>
   </div>
 </div>
