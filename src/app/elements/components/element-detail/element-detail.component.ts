@@ -28,4 +28,19 @@ export class ElementDetailComponent implements OnInit {
   goBack = () => {
     this.router.navigate(['/elements']);
   }
+
+  formatDiscoverer = (discoverer: string) => {
+    if (discoverer === 'Prehistoric') {
+      return discoverer;
+    }
+    
+    const matches = [...discoverer.matchAll(/,/g)];
+    if (matches && matches.length > 1) {
+      discoverer = discoverer.substring(0, discoverer.lastIndexOf(',') + 1) + ' and' + discoverer.substring(discoverer.lastIndexOf(',') + 1);
+    }
+    if (matches && matches.length === 1) {
+      discoverer = discoverer.replace(',', ' and');
+    }
+    return `Discovered by ${discoverer}`;
+  }
 }

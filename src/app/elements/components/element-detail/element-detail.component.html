@@ -1,77 +1,95 @@
+@if (!elementDetails) {
+  <div class="loading-element">
+    <img src="icons/microscope-loading.svg" alt="Loading..." />
+  </div>
+} 
 
-
-<div class="element-details">
-  <h1 class="element-title">{{elementDetails.element}}</h1>
-  <div class="back-button" (click)="goBack()"><img src="icons/back-arrow.svg" alt="Back"/></div>
-  <div class="element-info">
-    <div class="row-one">
-      <div class="element-card {{elementDetails.type !== null ? elementDetails.type.toLocaleLowerCase().replace(' ', '-') : ''}}">
-        <div class="element-header">
-          <p>{{elementDetails.atomicNumber}}</p>
-          <p>{{elementDetails.atomicWeight}}</p>
-        </div>
-        <h2>{{elementDetails.symbol}}</h2>
-        <div class="element-footer">
-          <p>{{elementDetails.element}}</p>
-          <p>{{elementDetails.type}}</p>
-        </div>
-      </div>
-      <div class="element-highlights">
-        <span class="element-highlight">
-          <p>Discovered by <span>{{elementDetails.discoverer}}</span> in <span>{{elementDetails.yearOfDiscovery}}</span></p>
-          <img class="icon" src="icons/microscope.svg" alt="Microscope" />
-        </span>
-        <span class="element-highlight">
-          <p>Melts at {{elementDetails.meltingPointKelvin}} Kelvin</p>
-          <img class="icon" src="icons/fire.svg" alt="Microscope" />
-        </span>
-        <span class="element-highlight">
-          <p>Boils at {{elementDetails.boilingPointKelvin}} Kelvin</p>
-          <img class="icon" src="icons/thermometer.svg" alt="Microscope" />
-        </span>
-        <span class="element-highlight">
-          <p>Classified as a {{elementDetails.type.toLocaleLowerCase()}}</p>
-          <span class="type-container" [ngSwitch]="elementDetails.type.toLocaleLowerCase()">
-            <span *ngSwitchCase="'nonmetal'"><img class="icon" src="icons/nonmetal.svg" alt="Nonmetal" /></span>
-            <span *ngSwitchCase="'alkali metal'"><img class="icon" src="icons/alkali-metal.svg" alt="Alkali Metal" /></span>
-            <span *ngSwitchCase="'alkaline earth metal'"><img class="icon" src="icons/earth-metal.svg" alt="Alkaline Earth Metal" /></span>
-            <span *ngSwitchCase="'transition metal'"><img class="icon" src="icons/transition-metal.svg" alt="Alkaline Earth Metal" /></span>
-            <span *ngSwitchCase="'post-transition metal'"><img class="icon" src="icons/post-transition-metal.svg" alt="Alkaline Earth Metal" /></span>
-            <span *ngSwitchCase="'metalloid'"><img class="icon" src="icons/earth-metal.svg" alt="Metalloid" /></span>
-            <span *ngSwitchCase="'halogen'"><img class="icon" src="icons/halogen.svg" alt="Halogen" /></span>
-            <span *ngSwitchCase="'noble gas'"><img class="icon" src="icons/noble-gas.svg" alt="Noble Gas" /></span>
-            <span *ngSwitchCase="'lanthanide'"><img class="icon" src="icons/lanthanide.svg" alt="Lanthanide" /></span>
-            <span *ngSwitchCase="'actinide'"><img class="icon" src="icons/actinide.svg" alt="Actinide" /></span>
-            <span *ngSwitchDefault></span>
-          </span>
-        </span>
-        <span class="element-highlight">
-          <p>Standard state is {{elementDetails.standardState.toLocaleLowerCase()}}</p>
-          <img class="icon {{elementDetails.standardState.includes('Solid') ? '' : 'inactive'}}" src="icons/solid.svg" alt="Solid" />
-          <img class="icon liquid {{elementDetails.standardState.includes('Liquid') ? '' : 'inactive'}}" src="icons/liquid.svg" alt="Liquid" />
-          <img class="icon gas {{elementDetails.standardState.includes('Gas') ? '' : 'inactive'}}" src="icons/gas.svg" alt="Gas" />
-        </span>
-      </div>
+@else {
+  <div class="element-details">
+    <div class="element-header">
+      <div></div>
+      <h1 class="element-title">{{elementDetails.element}}</h1>
+      <div class="back-button" (click)="goBack()"><img src="icons/back-arrow.svg" alt="Back"/></div>
     </div>
-
-    <p>{{elementDetails.facts}}</p>
-
-    <div class="element-data">
-      <div>
-        <h3>Physical Properties</h3>
-        <p>Melting Point: <span>{{elementDetails.meltingPointKelvin}}</span></p>
-        <p>Boiling Point: <span>{{elementDetails.boilingPointKelvin}}</span></p>
-        <p>Density: <span>{{elementDetails.density}}</span></p>
-        <p>Standard State: <span>{{elementDetails.standardState}}</span></p>
+    <div class="element-info">
+      <div class="row-one">
+        <div class="element-card {{elementDetails.type !== null ? elementDetails.type.toLocaleLowerCase().replace(' ', '-') : ''}}">
+          <div class="element-card-header">
+            <p>{{elementDetails.atomicNumber}}</p>
+            <p>{{elementDetails.atomicWeight}}</p>
+          </div>
+          <h2>{{elementDetails.symbol}}</h2>
+          <div class="element-card-footer">
+            <p>{{elementDetails.element}}</p>
+            <p>{{elementDetails.type}}</p>
+          </div>
+        </div>
+        <div class="element-highlights">
+          <span class="element-highlight">
+            <p>{{formatDiscoverer(elementDetails.discoverer)}}</p>
+            <img class="icon" src="icons/microscope.svg" alt="Microscope" />
+          </span>
+          <span class="element-highlight">
+            <p>Melts at {{elementDetails.meltingPointKelvin}} Kelvin</p>
+            <img class="icon" src="icons/fire.svg" alt="Microscope" />
+          </span>
+          <span class="element-highlight">
+            <p>Boils at {{elementDetails.boilingPointKelvin}} Kelvin</p>
+            <img class="icon" src="icons/thermometer.svg" alt="Microscope" />
+          </span>
+          <span class="element-highlight">
+            <p>Classified as a {{elementDetails.type.toLocaleLowerCase()}}</p>
+            <span class="type-container" [ngSwitch]="elementDetails.type.toLocaleLowerCase()">
+              <span *ngSwitchCase="'nonmetal'"><img class="icon" src="icons/nonmetal.svg" alt="Nonmetal" /></span>
+              <span *ngSwitchCase="'alkali metal'"><img class="icon" src="icons/alkali-metal.svg" alt="Alkali Metal" /></span>
+              <span *ngSwitchCase="'alkaline earth metal'"><img class="icon" src="icons/earth-metal.svg" alt="Alkaline Earth Metal" /></span>
+              <span *ngSwitchCase="'transition metal'"><img class="icon" src="icons/transition-metal.svg" alt="Alkaline Earth Metal" /></span>
+              <span *ngSwitchCase="'post-transition metal'"><img class="icon" src="icons/post-transition-metal.svg" alt="Alkaline Earth Metal" /></span>
+              <span *ngSwitchCase="'metalloid'"><img class="icon" src="icons/metalloid.svg" alt="Metalloid" /></span>
+              <span *ngSwitchCase="'halogen'"><img class="icon" src="icons/halogen.svg" alt="Halogen" /></span>
+              <span *ngSwitchCase="'noble gas'"><img class="icon" src="icons/noble-gas.svg" alt="Noble Gas" /></span>
+              <span *ngSwitchCase="'lanthanide'"><img class="icon" src="icons/lanthanide.svg" alt="Lanthanide" /></span>
+              <span *ngSwitchCase="'actinide'"><img class="icon" src="icons/actinide.svg" alt="Actinide" /></span>
+              <span *ngSwitchDefault></span>
+            </span>
+          </span>
+          <span class="element-highlight">
+            <p>Standard state is {{elementDetails.standardState.toLocaleLowerCase()}}</p>
+            <img class="icon {{elementDetails.standardState.includes('Solid') ? '' : 'inactive'}}" src="icons/solid.svg" alt="Solid" />
+            <img class="icon liquid {{elementDetails.standardState.includes('Liquid') ? '' : 'inactive'}}" src="icons/liquid.svg" alt="Liquid" />
+            <img class="icon gas {{elementDetails.standardState.includes('Gas') ? '' : 'inactive'}}" src="icons/gas.svg" alt="Gas" />
+          </span>
+        </div>
       </div>
-      <div>
-        <h3>Atomic Properties</h3>
-        <p>Atomic Radius: <span>{{elementDetails.atomicRadius}}</span></p>
-        <p>Ionic Radius: <span>{{elementDetails.ionicRadius}}</span></p>
-        <p>Electronegativity: <span>{{elementDetails.electronegativity}}</span></p>
-        <p>First Ionization Potential: <span>{{elementDetails.firstIonizationPotential}}</span></p>
-        <p>Electron Configuration: <span>{{elementDetails.electronConfiguration}}</span></p>
+  
+      <p>{{elementDetails.facts}}</p>
+  
+      <div class="element-data">
+        <div>
+          <h3 class="{{elementDetails.type !== null ? elementDetails.type.toLocaleLowerCase().replace(' ', '-') : ''}}">Physical Properties</h3>
+          <p>Melting Point <span>{{elementDetails.meltingPointKelvin}}</span></p>
+          <p>Boiling Point <span>{{elementDetails.boilingPointKelvin}}</span></p>
+          <p>Density <span>{{elementDetails.density}}</span></p>
+          <p>Standard State <span>{{elementDetails.standardState}}</span></p>
+        </div>
+        <div>
+          <h3 class="{{elementDetails.type !== null ? elementDetails.type.toLocaleLowerCase().replace(' ', '-') : ''}}">Atomic Properties</h3>
+          <p>Atomic Radius <span>{{elementDetails.atomicRadius}}</span></p>
+          <p>Ionic Radius <span>{{elementDetails.ionicRadius}}</span></p>
+          <p>Electronegativity <span>{{elementDetails.electronegativity}}</span></p>
+          <p>First Ionization Potential <span>{{elementDetails.firstIonizationPotential}}</span></p>
+          <p>Electron Configuration <span>{{elementDetails.electronConfiguration}}</span></p>
+        </div>
+        <div>
+          <h3 class="{{elementDetails.type !== null ? elementDetails.type.toLocaleLowerCase().replace(' ', '-') : ''}}">Other Properties</h3>
+          <p>Atomic Radius <span>{{elementDetails.atomicRadius}}</span></p>
+          <p>Ionic Radius <span>{{elementDetails.ionicRadius}}</span></p>
+          <p>Electronegativity <span>{{elementDetails.electronegativity}}</span></p>
+          <p>First Ionization Potential <span>{{elementDetails.firstIonizationPotential}}</span></p>
+          <p>Electron Configuration <span>{{elementDetails.electronConfiguration}}</span></p>
+        </div>
       </div>
     </div>
   </div>
-</div>
+}
+
