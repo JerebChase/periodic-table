@@ -29,7 +29,7 @@ export class ElementDetailComponent implements OnInit {
     this.router.navigate(['/elements']);
   }
 
-  formatDiscoverer = (discoverer: string) => {
+  formatDiscoverer = (discoverer: string, year: number) => {
     if (discoverer === 'Prehistoric') {
       return discoverer;
     }
@@ -41,6 +41,6 @@ export class ElementDetailComponent implements OnInit {
     if (matches && matches.length === 1) {
       discoverer = discoverer.replace(',', ' and');
     }
-    return `Discovered by ${discoverer}`;
+    return `Discovered by ${discoverer} in ${year}`;
   }
 }

@@ -26,7 +26,7 @@
         </div>
         <div class="element-highlights">
           <span class="element-highlight">
-            <p>{{formatDiscoverer(elementDetails.discoverer)}}</p>
+            <p>{{formatDiscoverer(elementDetails.discoverer, elementDetails.yearOfDiscovery)}}</p>
             <img class="icon" src="icons/microscope.svg" alt="Microscope" />
           </span>
           <span class="element-highlight">
@@ -66,27 +66,24 @@
   
       <div class="element-data">
         <div>
-          <h3 class="{{elementDetails.type !== null ? elementDetails.type.toLocaleLowerCase().replace(' ', '-') : ''}}">Physical Properties</h3>
-          <p>Melting Point <span>{{elementDetails.meltingPointKelvin}}</span></p>
-          <p>Boiling Point <span>{{elementDetails.boilingPointKelvin}}</span></p>
+          <h3 class="{{elementDetails.type !== null ? elementDetails.type.toLocaleLowerCase().replace(' ', '-') : ''}}">Atomic Structure</h3>
+          <p>Electron Configuration <span>{{elementDetails.electronConfiguration}}</span></p>
+          <p>Atomic Weight <span>{{elementDetails.atomicWeight}}</span></p>
+          <p>Isotopes <span>{{elementDetails.isotopes}}</span></p>
+        </div>
+        <div>
+          <h3 class="{{elementDetails.type !== null ? elementDetails.type.toLocaleLowerCase().replace(' ', '-') : ''}}">Size & Stability</h3>
           <p>Density <span>{{elementDetails.density}}</span></p>
-          <p>Standard State <span>{{elementDetails.standardState}}</span></p>
+          <p>Atomic Radius <span>{{elementDetails.atomicRadius === 0 ? 'N/A' : elementDetails.atomicRadius}}</span></p>
+          <p>Ionic Radius <span>{{elementDetails.ionicRadius === 0 ? 'N/A' : elementDetails.ionicRadius}}</span></p>
+          <p>Most Stable Crystal <span>{{elementDetails.mostStableCrystal}}</span></p>
+          <p>Specific Heat Capacity <span>{{elementDetails.specificHeatCapacity === 0 ? 'N/A' : elementDetails.specificHeatCapacity}}</span></p>
         </div>
         <div>
-          <h3 class="{{elementDetails.type !== null ? elementDetails.type.toLocaleLowerCase().replace(' ', '-') : ''}}">Atomic Properties</h3>
-          <p>Atomic Radius <span>{{elementDetails.atomicRadius}}</span></p>
-          <p>Ionic Radius <span>{{elementDetails.ionicRadius}}</span></p>
+          <h3 class="{{elementDetails.type !== null ? elementDetails.type.toLocaleLowerCase().replace(' ', '-') : ''}}">Reactivity</h3>
           <p>Electronegativity <span>{{elementDetails.electronegativity}}</span></p>
           <p>First Ionization Potential <span>{{elementDetails.firstIonizationPotential}}</span></p>
-          <p>Electron Configuration <span>{{elementDetails.electronConfiguration}}</span></p>
-        </div>
-        <div>
-          <h3 class="{{elementDetails.type !== null ? elementDetails.type.toLocaleLowerCase().replace(' ', '-') : ''}}">Other Properties</h3>
-          <p>Atomic Radius <span>{{elementDetails.atomicRadius}}</span></p>
-          <p>Ionic Radius <span>{{elementDetails.ionicRadius}}</span></p>
-          <p>Electronegativity <span>{{elementDetails.electronegativity}}</span></p>
-          <p>First Ionization Potential <span>{{elementDetails.firstIonizationPotential}}</span></p>
-          <p>Electron Configuration <span>{{elementDetails.electronConfiguration}}</span></p>
+          <p>Oxidation States <span>{{elementDetails.oxidationStates}}</span></p>
         </div>
       </div>
     </div>
