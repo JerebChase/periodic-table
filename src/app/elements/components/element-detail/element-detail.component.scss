@@ -24,10 +24,10 @@
   width: 60vw;
   max-width: 1000px;
   border: 1px solid #E0E0E0;
-  box-shadow: 0px 0.5px 0.6px hsl(var(0deg 0% 60% / 0.36));
-  box-shadow: 0px 1.7px 1.9px -0.8px hsl(var(0deg 0% 60% / 0.36));
-  box-shadow: 0px 4.4px 5px -1.7px hsl(var(0deg 0% 60% / 0.36));
-  box-shadow: 0px 10.6px 11.9px -2.5px hsl(var(0deg 0% 60% / 0.36));
+  box-shadow: 0px 0.5px 0.6px hsla(0, 0%, 60%, 0.36), 
+              0px 1.7px 1.9px -0.8px hsla(0, 0%, 60%, 0.36), 
+              0px 4.4px 5px -1.7px hsla(0, 0%, 60%, 0.36), 
+              0px 10.6px 11.9px -2.5px hsla(0, 0%, 60%, 0.36);
   border-radius: 8px;
 }
 
