@@ -1,4 +1,4 @@
 export const environment = {
     production: true,
-    baseUrl: 'https://periodictable-api.prod.jeremychasebrown.com'
+    baseUrl: 'https://periodictable-api.jeremychasebrown.com'
   };
