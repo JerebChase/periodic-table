@@ -12,6 +12,7 @@ jobs:
   deploy:
 
     runs-on: ubuntu-latest
+    environment: ${{ github.ref == 'refs/heads/main' && 'prod' || 'dev' }}
 
     steps:
     - uses: actions/checkout@v4
@@ -24,11 +25,15 @@ jobs:
     - name: Install Angular CLI
       run: npm install -g @angular/cli
     - name: Build Angular App
-      run: ng build --configuration development
+      env:
+        ENVIRONMENT: ${{ vars.ENVIRONMENT }}
+      run: ng build --configuration $ENVIRONMENT
     - name: Configure AWS credentials for Github Actions
       uses: aws-actions/configure-aws-credentials@v4
       with:
         aws-region: us-east-1
-        role-to-assume: arn:aws:iam::105459448871:role/GithubProviderRole
+        role-to-assume: ${{ secrets.AWS_ACCESS_ROLE }}
     - name: Deploy to S3
-      run: aws s3 sync dist/periodic-table/browser s3://periodic-table-dev  --acl public-read
+      env:
+        S3_BUCKET: ${{ secrets.S3_BUCKET }}
+      run: aws s3 sync dist/periodic-table/browser $S3_BUCKET --acl public-read
